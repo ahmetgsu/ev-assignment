@@ -7,4 +7,5 @@ export const colors = {
   black2: '#121212',
   black3: '#131c21',
   gray1: '#262d31',
+  gray2: `rgba(236, 236, 227, 1)`,
 };
