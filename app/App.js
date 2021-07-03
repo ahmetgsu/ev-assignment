@@ -1,28 +1,26 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import FastImage from 'react-native-fast-image';
-import {colors} from './styles/colors';
-import Logo from './assets/images/logo.svg';
-import {CHeader, Block} from './components/common';
+import {useEffect} from 'react';
+import {Provider as PaperProvider} from 'react-native-paper';
+import {chargepoints} from './mocks/chargepoints';
+import AppStack from './navigation/AppNavigation';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
+  useEffect(() => {
+    checkAndSetStorage();
+  }, []);
+
+  const checkAndSetStorage = async () => {
+    const items = await AsyncStorage.getItem('chargepoints');
+    if (items == null) {
+      AsyncStorage.setItem('chargepoints', JSON.stringify(chargepoints));
+    }
+  };
   return (
-    <Block flex={1} style={styles.container}>
-      <CHeader />
-      <Block flex={1}>
-        <Text>EV Assignment</Text>
-        <Logo height={35} width={186} />
-      </Block>
-    </Block>
+    <PaperProvider>
+      <AppStack />
+    </PaperProvider>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.main,
-  },
-});
