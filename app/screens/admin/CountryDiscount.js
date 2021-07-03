@@ -9,42 +9,38 @@ import CheckBox from '../../components/common/CheckBox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Divider} from 'react-native-paper';
 import ListItem from './ListItem';
+import {decrement, increment} from '../../helpers/discount';
+import {getNewStates} from '../../helpers/getNewStates';
+import {useIsFocused} from '@react-navigation/native';
 
 const CountryDiscount = () => {
+  const isFocused = useIsFocused();
   const [countries, setCountries] = useState([]);
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [relatedChargePoints, setRelatedChargePoints] = useState([]);
-  console.log('CountryDiscount -> relatedChargePoints', relatedChargePoints);
   const [unrelatedChargePoints, setUnrelatedChargePoints] = useState([]);
   const [discount, setDiscount] = useState(0);
   const [checked, setChecked] = useState([]);
   const [chargepoints, setChargepoints] = useState([]);
 
   useEffect(() => {
-    getData();
-  }, [JSON.stringify(chargepoints)]);
+    isFocused && getData();
+  }, [JSON.stringify(chargepoints), isFocused]);
 
   useEffect(() => {
-    let relatedCPs = [];
-    let unrelatedCPs = [];
-    selectedCountries.forEach(sc => {
-      let relatedCP = chargepoints.filter(e => e.country === sc);
-      relatedCPs = [...relatedCPs, ...relatedCP];
-      if (unrelatedCPs.length === 0) {
-        unrelatedCPs = chargepoints.filter(e => e.country !== sc);
-      } else {
-        unrelatedCPs = unrelatedCPs.filter(e => e.country !== sc);
-      }
-    });
-    setRelatedChargePoints(relatedCPs);
-    setUnrelatedChargePoints(unrelatedCPs);
-  }, [JSON.stringify(selectedCountries)]);
+    const {relatedState, unrelatedState} = getNewStates(
+      selectedCountries,
+      chargepoints,
+      'country',
+    );
+    setRelatedChargePoints(relatedState);
+    setUnrelatedChargePoints(unrelatedState);
+  }, [JSON.stringify(selectedCountries), JSON.stringify(chargepoints)]);
 
   const getData = async () => {
     const cPoints = await AsyncStorage.getItem('chargepoints');
     if (cPoints != null) {
       const parsedCPoints = JSON.parse(cPoints);
-      console.log('Signin -> cPoints', parsedCPoints);
       setChargepoints(parsedCPoints);
       let countriesArr = [];
       parsedCPoints.forEach(cp => {
@@ -67,10 +63,6 @@ const CountryDiscount = () => {
     setSelectedCountries(selectedItems);
   };
 
-  const increment = () => setDiscount(prev => (+prev > 95 ? 100 : +prev + 5));
-  const decrement = () =>
-    setDiscount(prev => (+prev < 5 ? +prev - +prev : +prev - 5));
-
   const onCheckPress = txt => {
     checked.includes(txt) ? removeFromList(txt) : addToList(txt);
   };
@@ -84,7 +76,13 @@ const CountryDiscount = () => {
     setChecked(newArr);
   };
 
-  const onChangeNumber = t => {};
+  const onChangeNumber = t => {
+    if (t > 100) {
+      setDiscount(100);
+      return;
+    }
+    setDiscount(t);
+  };
 
   const applyDiscount = async () => {
     let newRCP = [...relatedChargePoints];
@@ -124,7 +122,11 @@ const CountryDiscount = () => {
             <Block mt={25} flex={false}>
               <Title>Discount Rate ( % )</Title>
               <Block flex={false} row center mt={25}>
-                <Icon name="minus-circle" size={25} onPress={decrement} />
+                <Icon
+                  name="minus-circle"
+                  size={25}
+                  onPress={() => decrement(setDiscount)}
+                />
                 <TextInput
                   value={`${discount.toString()}`}
                   onChangeText={t => onChangeNumber(t)}
@@ -134,7 +136,11 @@ const CountryDiscount = () => {
                   style={styles.textInput}
                   keyboardType="numeric"
                 />
-                <Icon name="plus-circle" size={25} onPress={increment} />
+                <Icon
+                  name="plus-circle"
+                  size={25}
+                  onPress={() => increment(setDiscount)}
+                />
               </Block>
             </Block>
             <Block mt={25} flex={false}>

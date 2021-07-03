@@ -6,7 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomeScreenUser = () => {
   const [user, setUser] = useState();
-  console.log('HomeScreenUser -> user', user);
   useEffect(() => {
     getUser();
   }, []);
@@ -14,7 +13,6 @@ const HomeScreenUser = () => {
   const getUser = async () => {
     const value = await AsyncStorage.getItem('user');
     if (value !== null) {
-      console.log('HomeScreenUser -> value', value);
       setUser(JSON.parse(value));
     }
   };

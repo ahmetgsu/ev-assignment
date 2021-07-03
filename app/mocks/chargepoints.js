@@ -62,7 +62,7 @@ export const chargepoints = [
   {
     chargepointId: 7,
     country: 'United Kingdom',
-    operator: 'EV-Box',
+    operator: 'ESB Group',
     tariff: {
       currency: 'GBP',
       perkWH: 0.14,
@@ -72,7 +72,7 @@ export const chargepoints = [
   {
     chargepointId: 8,
     country: 'United Kingdom',
-    operator: 'LastMileSolutions',
+    operator: 'ubitricity',
     tariff: {
       currency: 'GBP',
       perkWH: 0.54,
@@ -82,7 +82,7 @@ export const chargepoints = [
   {
     chargepointId: 9,
     country: 'United Kingdom',
-    operator: 'Vattenfall',
+    operator: 'ChargePoint Inc.',
     tariff: {
       currency: 'GBP',
       perkWH: 0.16,

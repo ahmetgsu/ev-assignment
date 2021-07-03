@@ -16,6 +16,7 @@ const App = () => {
       AsyncStorage.setItem('chargepoints', JSON.stringify(chargepoints));
     }
   };
+
   return (
     <PaperProvider>
       <AppStack />

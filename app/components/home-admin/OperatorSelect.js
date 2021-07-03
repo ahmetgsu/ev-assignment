@@ -13,7 +13,7 @@ const OperatorSelect = ({
   const multiSelectRef = React.useRef();
   return (
     <Block flex={false} mt={20}>
-      <Title>Please select operators</Title>
+      <Title>Please select operators to apply discount</Title>
       <Block flex={false} mt={20}>
         <MultiSelect
           hideTags
@@ -24,7 +24,7 @@ const OperatorSelect = ({
           selectedItems={selectedOperators}
           selectText={'Select Operators'}
           searchInputPlaceholderText="Search operators..."
-          onChangeInput={text => console.log(text)}
+          // onChangeInput={text => console.log(text)}
           // altFontFamily="ProximaNova-Light"
           tagRemoveIconColor={colors.main}
           tagBorderColor={colors.main}

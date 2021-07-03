@@ -26,7 +26,7 @@ const CountrySelect = ({
           selectedItems={selectedCountries}
           selectText={'Select Country/Countries'}
           searchInputPlaceholderText="Search country..."
-          onChangeInput={text => console.log(text)}
+          // onChangeInput={text => console.log(text)}
           tagRemoveIconColor={colors.main}
           tagBorderColor={colors.main}
           tagTextColor={colors.main}

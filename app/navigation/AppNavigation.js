@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -8,6 +8,7 @@ import UserHome from '../screens/HomeScreenUser';
 import {colors} from '../styles/colors';
 import CountryDiscount from '../screens/admin/CountryDiscount';
 import OperatorDiscount from '../screens/admin/OperatorDiscount';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

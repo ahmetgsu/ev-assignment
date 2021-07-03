@@ -14,7 +14,6 @@ const Signin = ({navigation}) => {
   const [secureText, setSecureText] = useState(true);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState();
-  console.log('Signin -> error', error);
 
   const toggleSecureText = () => setSecureText(prev => !prev);
   const toggleSnackBar = () => setError(prev => !prev);
