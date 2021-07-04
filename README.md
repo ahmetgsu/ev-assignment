@@ -49,7 +49,7 @@ I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators
   One for admin user in which admin can create a promotion for Country and/or Operator.
   Other is for standart user interface in which user may create a charging session and may see all his/her past charging sessions.
 
-- My main focus is to create a well working react native application on IOS to keep it simple.
+- My main focus is to create a well working react native application on IOS to keep it simple. Android settings are ignored.
 <!-- - To dive deep into Typescript.
 - To learn and implement javascript testing using Jest.
 - To practice native animation feature.
