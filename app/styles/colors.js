@@ -9,6 +9,7 @@ export const colors = {
   gray1: '#262d31',
   gray2: `rgba(236, 236, 227, 1)`,
   gray3: `#231F20`,
+  gray4: `rgba(236, 236, 227, 0.5)`,
   green1: '#6AA271',
   red1: '#E4702A',
 };
