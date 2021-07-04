@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Snackbar, TextInput} from 'react-native-paper';
-import {Block, ColorButton, Text} from '../components/common';
-import {colors} from '../styles/colors';
-import {textInputTheme} from '../styles/text-input';
+import {Block, ColorButton, Text} from '../../components/common';
+import {colors} from '../../styles/colors';
+import {textInputTheme} from '../../styles/text-input';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {users} from '../mocks/users';
-import Logo from '../assets/images/logo.svg';
+import {users} from '../../mocks/users';
+import Logo from '../../assets/images/logo.svg';
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -35,7 +35,7 @@ const Signin = ({navigation}) => {
       return;
     }
     await AsyncStorage.setItem('user', JSON.stringify(relatedUser));
-    navigation.navigate(relatedUser.isAdmin ? 'AdminTabs' : 'UserHome');
+    navigation.navigate(relatedUser.isAdmin ? 'AdminTabs' : 'UserTabs');
   };
 
   return (
