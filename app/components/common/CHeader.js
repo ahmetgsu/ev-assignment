@@ -17,6 +17,10 @@ const CHeader = ({bgColor, title, back, right}) => {
     await AsyncStorage.removeItem('user');
     navigation.navigate('Signin');
   };
+
+  const goBack = () => {
+    navigation.goBack();
+  };
   return (
     <Block
       flex={false}
@@ -24,7 +28,7 @@ const CHeader = ({bgColor, title, back, right}) => {
       row>
       <Block flex={1} row center middle>
         {back && (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={goBack}>
             <FastImage
               source={require('../../assets/icons/left-chevron.png')}
               resizeMode={FastImage.resizeMode.contain}
