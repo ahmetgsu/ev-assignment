@@ -5,7 +5,6 @@ import {width} from '../../../helpers/device';
 import {colors} from '../../../styles/colors';
 import {Block, Text} from '../../common';
 import CardRowText from '../../common/CardRowText';
-import RowText from '../../common/RowText';
 
 const HistoryCard = ({item, index}) => {
   return (
@@ -16,6 +15,7 @@ const HistoryCard = ({item, index}) => {
             title={'Operator'}
             value={item.operator}
             color={colors.gray1}
+            color2={colors.green1}
             weight={'300'}
           />
           <CardRowText
