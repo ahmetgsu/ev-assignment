@@ -3,6 +3,7 @@ export const chargepoints = [
     chargepointId: 1,
     country: 'Germany',
     operator: 'Stromnetz Hamburg',
+    maxPower: 30,
     tariff: {
       currency: 'EUR',
       perkWH: 0.24,
@@ -13,6 +14,7 @@ export const chargepoints = [
     chargepointId: 2,
     country: 'Germany',
     operator: 'NewMotion',
+    maxPower: 30,
     tariff: {
       currency: 'EUR',
       perkWH: 0.48,
@@ -23,6 +25,7 @@ export const chargepoints = [
     chargepointId: 3,
     country: 'Germany',
     operator: 'Aral',
+    maxPower: 30,
     tariff: {
       currency: 'EUR',
       perkWH: 0.36,
@@ -33,6 +36,7 @@ export const chargepoints = [
     chargepointId: 4,
     country: 'Netherlands',
     operator: 'EV-Box',
+    maxPower: 30,
     tariff: {
       currency: 'EUR',
       perkWH: 0.34,
@@ -43,6 +47,7 @@ export const chargepoints = [
     chargepointId: 5,
     country: 'Netherlands',
     operator: 'LastMileSolutions',
+    maxPower: 30,
     tariff: {
       currency: 'EUR',
       perkWH: 0.68,
@@ -53,6 +58,7 @@ export const chargepoints = [
     chargepointId: 6,
     country: 'Netherlands',
     operator: 'Vattenfall',
+    maxPower: 30,
     tariff: {
       currency: 'EUR',
       perkWH: 0.46,
@@ -63,6 +69,7 @@ export const chargepoints = [
     chargepointId: 7,
     country: 'United Kingdom',
     operator: 'ESB Group',
+    maxPower: 30,
     tariff: {
       currency: 'GBP',
       perkWH: 0.14,
@@ -73,6 +80,7 @@ export const chargepoints = [
     chargepointId: 8,
     country: 'United Kingdom',
     operator: 'ubitricity',
+    maxPower: 30,
     tariff: {
       currency: 'GBP',
       perkWH: 0.54,
@@ -83,6 +91,7 @@ export const chargepoints = [
     chargepointId: 9,
     country: 'United Kingdom',
     operator: 'ChargePoint Inc.',
+    maxPower: 30,
     tariff: {
       currency: 'GBP',
       perkWH: 0.16,
