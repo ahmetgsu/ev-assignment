@@ -6,7 +6,7 @@ export const users = [
   },
   {
     email: 'janedoe@gmail.com',
-    password: 'password',
+    password: '123',
     isAdmin: false,
   },
 ];
