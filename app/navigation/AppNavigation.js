@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Signin from '../screens/auth/Signin';
+import BillingDetails from '../screens/user/BillingDetails';
 import {AdminTabs} from './AdminTabs';
 import {UserTabs} from './UserTabs';
 
@@ -14,6 +15,7 @@ const AppStack = () => {
         <Stack.Screen name="Signin" component={Signin} />
         <Stack.Screen name="AdminTabs" component={AdminTabs} />
         <Stack.Screen name="UserTabs" component={UserTabs} />
+        <Stack.Screen name="BillingDetails" component={BillingDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
