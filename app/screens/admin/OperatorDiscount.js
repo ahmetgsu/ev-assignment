@@ -93,7 +93,7 @@ const OperatorDiscount = () => {
 
   return (
     <Block flex={1} color={colors.white}>
-      <CHeader title="Admin Panel" />
+      <CHeader title="Admin Panel" right />
       <FlatList
         data={relatedChargePoints}
         style={styles.flatlist}
