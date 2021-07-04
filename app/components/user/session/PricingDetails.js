@@ -1,6 +1,6 @@
 import React from 'react';
-import {colors} from '../../styles/colors';
-import {Block, Text} from '../common';
+import {colors} from '../../../styles/colors';
+import {Block, Text} from '../../common';
 import PriceBlock from './PriceBlock';
 
 const PricingDetails = ({tariff}) => {
@@ -12,16 +12,18 @@ const PricingDetails = ({tariff}) => {
       <PriceBlock
         tariff={tariff}
         title="Volume (/kWh)"
-        finalTitle="Fee after discount"
-        discount={tariff?.discount_transactionFee}
-        final={tariff?.final_transactionFee}
+        finalTitle="Final Price"
+        initialPrice={tariff?.perkWH}
+        discount={tariff?.discount_perkWH}
+        final={tariff?.final_perkWH}
       />
       <PriceBlock
         tariff={tariff}
         title="Transaction Fee"
-        finalTitle="Final Price"
-        discount={tariff?.discount_perkWH}
-        final={tariff?.final_perkWH}
+        finalTitle="Fee after discount"
+        initialPrice={tariff?.transactionFee}
+        discount={tariff?.discount_transactionFee}
+        final={tariff?.final_transactionFee}
       />
     </Block>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {width} from '../../helpers/device';
-import {colors} from '../../styles/colors';
-import {Block, Text} from '../common';
+import {width} from '../../../helpers/device';
+import {colors} from '../../../styles/colors';
+import {Block, Text} from '../../common';
 import {Stopwatch} from 'react-native-stopwatch-timer';
 
 const SessionTracker = ({
@@ -46,14 +46,14 @@ const styles = StyleSheet.create({
 const options = {
   container: {
     backgroundColor: colors.green1,
-    padding: 15,
-    borderRadius: 5,
+    padding: 10,
+    borderRadius: 8,
     width: width - 60,
     justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
-    fontSize: 40,
+    fontSize: 35,
     color: '#FFF',
     // marginLeft: 7,
     letterSpacing: 2,

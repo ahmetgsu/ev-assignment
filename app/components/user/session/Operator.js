@@ -1,6 +1,7 @@
 import React from 'react';
-import {colors} from '../../styles/colors';
-import {Block, Text} from '../common';
+import {colors} from '../../../styles/colors';
+
+import {Block, Text} from '../../common';
 
 const Operator = ({chargepoint}) => {
   console.log('Operator -> chargepoint', chargepoint);

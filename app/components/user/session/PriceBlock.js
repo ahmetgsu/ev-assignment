@@ -1,10 +1,17 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {getCurrencySymbol} from '../../helpers/currency';
-import {colors} from '../../styles/colors';
-import {Block, Text} from '../common';
+import {getCurrencySymbol} from '../../../helpers/currency';
+import {colors} from '../../../styles/colors';
+import {Block, Text} from '../../common';
 
-const PriceBlock = ({tariff, title, finalTitle, discount, final}) => {
+const PriceBlock = ({
+  tariff,
+  title,
+  finalTitle,
+  initialPrice,
+  discount,
+  final,
+}) => {
   return (
     <>
       <Block flex={false} row space="between" pt={20}>
@@ -12,7 +19,7 @@ const PriceBlock = ({tariff, title, finalTitle, discount, final}) => {
           {title}
         </Text>
         <Text weight="300" size={18} color={colors.gray3}>
-          {getCurrencySymbol(tariff?.currency)} {tariff?.transactionFee}
+          {getCurrencySymbol(tariff?.currency)} {initialPrice}
         </Text>
       </Block>
       {discount > 0 && (
