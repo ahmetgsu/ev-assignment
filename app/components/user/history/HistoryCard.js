@@ -6,10 +6,13 @@ import {colors} from '../../../styles/colors';
 import {Block, Text} from '../../common';
 import CardRowText from '../../common/CardRowText';
 
-const HistoryCard = ({item, index}) => {
+const HistoryCard = ({item, index, onPress}) => {
   return (
     <Block row center middle ph={15} style={styles.cardContainer}>
-      <TouchableOpacity activeOpacity={0.8} style={styles.touchable}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={styles.touchable}
+        onPress={() => onPress(item)}>
         <Block flex={false} style={styles.card} mt={5} mb={5}>
           <CardRowText
             title={'Operator'}
