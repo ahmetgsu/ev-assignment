@@ -5004,7 +5004,7 @@ mockdate@^3.0.2:
   resolved "https://registry.npmjs.org/mockdate/-/mockdate-3.0.5.tgz"
   integrity sha512-iniQP4rj1FhBdBYS/+eQv7j1tadJ9lJtdzgOpvsOHng/GbcDh2Fhdeq+ZRldrPYdXvCyfFUmFeEwEGXZB5I/AQ==
 
-moment@^2.24.0:
+moment@^2.29.1:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
@@ -5634,21 +5634,6 @@ react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-circle-timer@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-circle-timer/-/react-native-circle-timer-1.0.0.tgz#24732e7e1d08dfdad85f38c2a7d4e8d2764b8736"
-  integrity sha512-kI2qrJBHmhABgw6JQXml/Rf+lhkcPHbMf1RmHqOAYOtRNJpXkKoSyLcv7duKHRO5mE7oI7sc0vmJN3yZUGVMmw==
-  dependencies:
-    moment "^2.24.0"
-
-react-native-circle-timer@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-circle-timer/-/react-native-circle-timer-1.0.1.tgz#1018ca58b4b9f969cf8a7740a3710568cfee0cc0"
-  integrity sha512-/Q0tLkN03/mebja499zRCSVsk735VMx2Wbs7pEZY9jDp0FHS05TpiAqAOeTXXOzf2UuvE/dmEQtL/oPBmciUpQ==
-  dependencies:
-    moment "^2.24.0"
-    react-native-circle-timer "1.0.0"
-
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.0.6.tgz"
@@ -5728,6 +5713,13 @@ react-native-status-bar-height@^2.6.0:
   version "2.6.0"
   resolved "https://registry.npmjs.org/react-native-status-bar-height/-/react-native-status-bar-height-2.6.0.tgz"
   integrity sha512-z3SGLF0mHT+OlJDq7B7h/jXPjWcdBT3V14Le5L2PjntjjWM3+EJzq2BcXDwV+v67KFNJic5pgA26cCmseYek6w==
+
+react-native-stopwatch-timer@^0.0.21:
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/react-native-stopwatch-timer/-/react-native-stopwatch-timer-0.0.21.tgz#52c39f603e36c538bed3466212b1bfb350ed452f"
+  integrity sha512-qFFsD85NkBT1nxo32HMGq3XAtQyMC09p9ZDIEuOED2BOxgs0UpWg/FSTA0MmEoIKMyXUwSE5VxEzBaGP3z1HFw==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-native-svg-transformer@^0.14.3:
   version "0.14.3"
