@@ -11,9 +11,10 @@ const CardRowText = ({
   weight,
   size = 18,
   pb = 0,
+  pt = 5,
 }) => {
   return (
-    <Block flex={false} row space="between" pt={5} ph={15} pb={pb}>
+    <Block flex={false} row space="between" pt={pt} ph={15} pb={pb}>
       <Text weight={weight} size={size} color={color}>
         {title}
       </Text>
