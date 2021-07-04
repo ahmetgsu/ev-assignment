@@ -4,10 +4,19 @@ import {Block, Text} from '.';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import FastImage from 'react-native-fast-image';
 import {colors} from '../../styles/colors';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const statusbarHeight = getStatusBarHeight();
 
 const CHeader = ({bgColor, title, back, right}) => {
+  const navigation = useNavigation();
+
+  const signoutHandler = async () => {
+    await AsyncStorage.removeItem('user');
+    navigation.navigate('Signin');
+  };
   return (
     <Block
       flex={false}
@@ -31,9 +40,12 @@ const CHeader = ({bgColor, title, back, right}) => {
       </Block>
       <Block flex={1} row center middle>
         {right && (
-          <TouchableOpacity>
-            <Text>middle</Text>
-          </TouchableOpacity>
+          <Icon
+            name="sign-out"
+            color={colors.red1}
+            size={25}
+            onPress={signoutHandler}
+          />
         )}
       </Block>
     </Block>
@@ -46,8 +58,8 @@ const styles = StyleSheet.create({
   header: {
     height: 60 + statusbarHeight,
     paddingTop: statusbarHeight,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.gray1,
+    borderBottomWidth: 0.5,
+    borderBottomColor: colors.green1,
   },
   backIcon: {
     width: 20,
