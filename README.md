@@ -45,7 +45,7 @@ I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators
 
 ### Aim of the project 🎯
 
-- To create a react native application that has 2 user seperate user interface.
+- To create a react native application that has 2 seperate user interfaces.
   One for admin user in which admin can create a promotion for Country and/or Operator.
   Other is for standart user interface in which user may create a charging session and may see all his/her past charging sessions.
 
