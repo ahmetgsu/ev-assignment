@@ -35,7 +35,7 @@ const HistoryCard = ({item, index, onPress}) => {
           />
           <CardRowText
             title={'Total paid'}
-            value={item.totalToPay}
+            value={item.totalToPay.toFixed(2)}
             color={colors.gray1}
             weight={'500'}
             pb={5}

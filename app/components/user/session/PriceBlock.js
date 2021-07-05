@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {StyleSheet} from 'react-native';
 import {getCurrencySymbol} from '../../../helpers/currency';
 import {colors} from '../../../styles/colors';
@@ -12,6 +12,10 @@ const PriceBlock = ({
   discount,
   final,
 }) => {
+  const currency = useMemo(
+    () => getCurrencySymbol(tariff?.currency),
+    [tariff?.currency],
+  );
   return (
     <>
       <Block flex={false} row space="between" pt={20}>
@@ -19,7 +23,7 @@ const PriceBlock = ({
           {title}
         </Text>
         <Text weight="300" size={18} color={colors.gray3}>
-          {getCurrencySymbol(tariff?.currency)} {initialPrice}
+          {currency} {initialPrice}
         </Text>
       </Block>
       {discount > 0 && (
@@ -29,7 +33,7 @@ const PriceBlock = ({
               Discount
             </Text>
             <Text weight="300" size={16} color={colors.gray3}>
-              {discount} %
+              {parseFloat(discount).toFixed(2)} %
             </Text>
           </Block>
           <Block flex={false} row space="between" pt={15}>
@@ -37,7 +41,7 @@ const PriceBlock = ({
               {finalTitle}
             </Text>
             <Text weight="600" size={18} color={colors.green1}>
-              {getCurrencySymbol(tariff?.currency)} {final}
+              {currency} {final.toFixed(2)}
             </Text>
           </Block>
         </>
