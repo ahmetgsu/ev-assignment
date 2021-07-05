@@ -5,11 +5,14 @@ import {StyleSheet, FlatList} from 'react-native';
 import {Block, CHeader, Text} from '../../components/common';
 import {colors} from '../../styles/colors';
 import HistoryCard from '../../components/user/history/HistoryCard';
+import EmptyList from '../../components/user/history/EmptyList';
 
 const History = () => {
   const isFocused = useIsFocused();
   const navigation = useNavigation();
   const [chargeHistory, setChargeHistory] = useState([]);
+  const [loading, setLoading] = useState(true);
+  console.log('History -> chargeHistory', chargeHistory);
 
   useEffect(() => {
     isFocused && getUserChargeHistory();
@@ -19,8 +22,10 @@ const History = () => {
     const data = await AsyncStorage.getItem('charge-history');
     if (data != null) {
       const parsedData = JSON.parse(data);
+      console.log('History -> parsedData', parsedData);
       setChargeHistory(parsedData);
     }
+    setLoading(false);
   };
 
   const onPressItem = item => {
@@ -39,6 +44,7 @@ const History = () => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={_renderItem}
         style={styles.flatlist}
+        ListEmptyComponent={() => !loading && <EmptyList />}
       />
     </Block>
   );
