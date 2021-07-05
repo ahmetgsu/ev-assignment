@@ -33,11 +33,14 @@ const Session = () => {
   console.log('Session -> endTime', endTime);
   const [chargepoint, setChargePoint] = useState();
   const [chargeHistory, setChargeHistory] = useState([]);
+  console.log('Session -> chargeHistory', chargeHistory);
 
   useEffect(() => {
-    getRelatedChargePoint();
-    getUserChargeHistory();
-  }, []);
+    if (isFocused) {
+      getRelatedChargePoint();
+      getUserChargeHistory();
+    }
+  }, [isFocused]);
 
   useEffect(() => {
     endTime && calculateBillingDetails();
@@ -59,9 +62,7 @@ const Session = () => {
     const data = await AsyncStorage.getItem('chargepoints');
     if (data != null) {
       const parsedData = JSON.parse(data);
-      const relatedCP = parsedData.find(
-        e => e.operator === 'LastMileSolutions',
-      );
+      const relatedCP = parsedData.find(e => e.chargepointId === 6);
       setChargePoint(relatedCP);
     }
   };
@@ -114,8 +115,11 @@ const Session = () => {
       discount: combinedDiscount,
       totalToPay: finalToPay,
     };
-    console.log('calculateBillingDetails -> newDataToStore', newDataToStore);
     const finalDataToStore = [newDataToStore, ...chargeHistory];
+    console.log(
+      'calculateBillingDetails -> finalDataToStore',
+      finalDataToStore,
+    );
 
     AsyncStorage.setItem('charge-history', JSON.stringify(finalDataToStore));
     setStartTime();
