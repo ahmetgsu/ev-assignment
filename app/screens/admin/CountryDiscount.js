@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, TextInput, FlatList} from 'react-native';
-import {Block, CHeader, ColorButton, Text} from '../../components/common';
+import {Block, CHeader, ColorButton} from '../../components/common';
 import {colors} from '../../styles/colors';
 import CountrySelect from '../../components/home-admin/CountrySelect';
 import Title from '../../components/common/Title';
