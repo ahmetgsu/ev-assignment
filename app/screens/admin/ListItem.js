@@ -8,8 +8,14 @@ const ListItem = ({item}) => {
   return (
     <Block flex={false} pv={15}>
       <Block flex={false} row center space={'between'}>
-        <Text size={16}>Operator: </Text>
-        <Text size={16} weight="bold" color={colors.green1}>
+        <Text testID="static-text" size={16}>
+          Operator:{' '}
+        </Text>
+        <Text
+          testID="dynamic-text"
+          size={16}
+          weight="bold"
+          color={colors.green1}>
           {item.operator}
         </Text>
       </Block>
