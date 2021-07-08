@@ -64,7 +64,7 @@ I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators
 - In order to keep the app flow simple in lack of project back-end, I decided to give a boolean `isAdmin` value to user object to differenciate roles.
   Acccording to this isAdmin value different user interfaces are shown. This can be acceptable in a simple app but in a real life application user roles should be determined in a precise way
 
-![Simple] (./app/assets/images/simple-roles.png)
+![Simple](./app/assets/images/simple-roles.png)
 
 ### Demo
 
