@@ -68,6 +68,13 @@ This can be acceptable in a simple app but in a real life application user roles
 
 ![Real-life Role Implementation](./app/assets/images/real-life-roles.png)
 
+In my simple application, I prefer to have a single signin screen and redirect users to the related screen according to their boolean role. However, in a real-life app, roles may be more complex (e.g. an admin user may also be a customer). It would be better to handle user role as an array of objects. On the other hand, it would be better to have different sign-in screens (for admin and for customers) in order to prevent complications during the signin process.
+
+#### Technical
+
+- I prefer to use custom `Block` and `Text` components instead of native `View`, `Text` components. Creating a custom component let me prevent using inline styling and I think it is more readable.
+- I have choosen `FlatList` instead of simple `ScrollView` component taking into account performance issues. FlatList is more permformant when we have unlimited number to display on the screen and it provides us scroll-to-fetch feature.
+
 ### Demo
 
 <!-- ![Demo](./app/assets/images/app-flow.gif) -->
