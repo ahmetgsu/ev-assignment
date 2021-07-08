@@ -33,8 +33,8 @@ $ cd ios && pod install
 I have created 2 separate users: admin and user
 
 ```sh
-Admin Account: email: johndoe@gmail.com - password: secret
-User  Account: email: janedoe@gmail.com - password: 123
+Admin Account: email: admin@gmail.com - password: secret
+User  Account: email: customer@gmail.com - password: 123
 ```
 
 Since it is just a front-end task, I checked email and password control on front-end. I handled wrong email and password combinations.
@@ -56,6 +56,15 @@ I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators
 - To improve user experience by adding ghost loader while course cards and video are loading. -->
 
 * Users are able to see past charging details after tapping related card (includes map integration).
+
+### Personal Choices
+
+## Roles
+
+- In order to keep the app flow simple in lack of project back-end, I decided to give a boolean `isAdmin` value to user object to differenciate roles.
+  Acccording to this isAdmin value different user interfaces are shown. This can be acceptable in a simple app but in a real life application user roles should be determined in a precise way
+
+![Implemented roles] (./app/assets/images/simple-roles.png)
 
 ### Demo
 
