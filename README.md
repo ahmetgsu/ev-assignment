@@ -85,14 +85,16 @@ In my simple application, I prefer to have a single signin screen and redirect u
 
 ![SS3](./app/assets/images/03.png) ![SS4](./app/assets/images/04.png)
 
-![SS5](./app/assets/images/05.png) ![SS6](./app/assets/images/06.png)
+![SS5](./app/assets/images/05_1.png) ![SS6](./app/assets/images/05_2.png)
 
-![SS7](./app/assets/images/07.png) ![SS8](./app/assets/images/08.png)
+![SS7](./app/assets/images/05_3.png) ![SS8](./app/assets/images/05_4.png)
 
-![SS9](./app/assets/images/09.png) ![SS10](./app/assets/images/10.png)
+![SS9](./app/assets/images/08_1.png) ![SS10](./app/assets/images/08_2.png)
 
-![SS11](./app/assets/images/11.png) ![SS12](./app/assets/images/12.png)
+![SS11](./app/assets/images/08_3.png) ![SS12](./app/assets/images/08_4.png)
 
-![SS13](./app/assets/images/13.png) ![SS14](./app/assets/images/14.png)
+![SS13](./app/assets/images/11_1.png) ![SS14](./app/assets/images/11_2.png)
 
-![SS15](./app/assets/images/15.png) ![SS16](./app/assets/images/16.png)
+![SS15](./app/assets/images/11_3.png) ![SS16](./app/assets/images/11_4.png)
+
+![SS17](./app/assets/images/11_5.png)
