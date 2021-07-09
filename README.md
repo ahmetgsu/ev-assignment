@@ -77,7 +77,7 @@ In my simple application, I prefer to have a single signin screen and redirect u
 
 ### Demo
 
-<!-- ![Demo](./app/assets/images/app-flow.gif) -->
+![Demo](./app/assets/images/app-flow.gif)
 
 ### ScreenShots
 
