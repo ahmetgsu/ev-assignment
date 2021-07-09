@@ -4,7 +4,6 @@ import {colors} from '../../../styles/colors';
 import {Block, Text} from '../../common';
 
 const Operator = ({chargepoint}) => {
-  console.log('Operator -> chargepoint', chargepoint);
   return (
     <Block flex={false} pb={20}>
       <Block space="between" flex={false} row>
