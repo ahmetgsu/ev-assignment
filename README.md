@@ -85,13 +85,13 @@ In my simple application, I prefer to have a single signin screen and redirect u
 
 ![SS3](./app/assets/images/03.png) ![SS4](./app/assets/images/04.png)
 
-![SS5](./app/assets/images/05_1.png) ![SS6](./app/assets/images/05_2.png)
+![SS5](./app/assets/images/5_1.png) ![SS6](./app/assets/images/5_2.png)
 
-![SS7](./app/assets/images/05_3.png) ![SS8](./app/assets/images/05_4.png)
+![SS7](./app/assets/images/5_3.png) ![SS8](./app/assets/images/5_4.png)
 
-![SS9](./app/assets/images/08_1.png) ![SS10](./app/assets/images/08_2.png)
+![SS9](./app/assets/images/8_1.png) ![SS10](./app/assets/images/8_2.png)
 
-![SS11](./app/assets/images/08_3.png) ![SS12](./app/assets/images/08_4.png)
+![SS11](./app/assets/images/8_3.png) ![SS12](./app/assets/images/8_4.png)
 
 ![SS13](./app/assets/images/11_1.png) ![SS14](./app/assets/images/11_2.png)
 
