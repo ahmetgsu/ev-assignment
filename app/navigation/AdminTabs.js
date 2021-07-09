@@ -2,23 +2,27 @@ import CountryDiscount from '../screens/admin/CountryDiscount';
 import OperatorDiscount from '../screens/admin/OperatorDiscount';
 import {colors} from '../styles/colors';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import React from 'react';
+import CTabBar from '../components/common/CTabBar';
 
 const Tab = createBottomTabNavigator();
 
 export const AdminTabs = () => {
   return (
     <Tab.Navigator
+      tabBar={props => <CTabBar {...props} />}
       tabBarOptions={{
-        labelStyle: {fontSize: 14},
+        // labelStyle: {fontSize: 14},
         activeTintColor: colors.main,
       }}>
       <Tab.Screen
         name="Country"
         component={CountryDiscount}
         options={{
-          tabBarIcon: ({color}) => <Icon name="flag" color={color} size={25} />,
+          tabBarIcon: ({color}) => (
+            <FontAwesome5 name="font-awesome-flag" color={color} size={25} />
+          ),
         }}
       />
       <Tab.Screen
@@ -26,7 +30,7 @@ export const AdminTabs = () => {
         component={OperatorDiscount}
         options={{
           tabBarIcon: ({color}) => (
-            <Icon name="battery-charging" color={color} size={25} />
+            <FontAwesome5 name="battery-half" color={color} size={25} />
           ),
         }}
       />

@@ -4,12 +4,14 @@ import Session from '../screens/user/Session';
 import History from '../screens/user/History';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {colors} from '../styles/colors';
+import CTabBar from '../components/common/CTabBar';
 
 const Tab = createBottomTabNavigator();
 
 export const UserTabs = () => {
   return (
     <Tab.Navigator
+      tabBar={props => <CTabBar {...props} />}
       tabBarOptions={{
         labelStyle: {fontSize: 14},
         activeTintColor: colors.main,
