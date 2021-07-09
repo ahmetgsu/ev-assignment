@@ -25,7 +25,12 @@ const OperatorDiscount = () => {
 
   useEffect(() => {
     isFocused && getData();
-  }, [JSON.stringify(chargepoints), isFocused]);
+    return () => {
+      setSelectedOperators([]);
+      setChecked([]);
+      setDiscount(0);
+    };
+  }, [isFocused]);
 
   useEffect(() => {
     const {relatedState, unrelatedState} = getNewStates(
@@ -42,6 +47,7 @@ const OperatorDiscount = () => {
     if (cPoints != null) {
       const parsedCPoints = JSON.parse(cPoints);
       setChargepoints(parsedCPoints);
+      let sections = [{name: 'Operator', id: 1, children: []}];
       let operatorsArr = [];
       parsedCPoints.forEach(cp => {
         operatorsArr = [
@@ -52,7 +58,8 @@ const OperatorDiscount = () => {
           },
         ];
       });
-      setOperators(operatorsArr);
+      sections[0].children = [...operatorsArr];
+      setOperators(sections);
     }
   };
 

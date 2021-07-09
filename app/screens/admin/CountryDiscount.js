@@ -22,10 +22,16 @@ const CountryDiscount = () => {
   const [discount, setDiscount] = useState(0);
   const [checked, setChecked] = useState([]);
   const [chargepoints, setChargepoints] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     isFocused && getData();
-  }, [JSON.stringify(chargepoints), isFocused]);
+    return () => {
+      setSelectedCountries([]);
+      setChecked([]);
+      setDiscount(0);
+    };
+  }, [isFocused]);
 
   useEffect(() => {
     const {relatedState, unrelatedState} = getNewStates(
@@ -38,10 +44,11 @@ const CountryDiscount = () => {
   }, [JSON.stringify(selectedCountries), JSON.stringify(chargepoints)]);
 
   const getData = async () => {
+    setLoading(true);
     const cPoints = await AsyncStorage.getItem('chargepoints');
     if (cPoints != null) {
       const parsedCPoints = JSON.parse(cPoints);
-      setChargepoints(parsedCPoints);
+      let sections = [{name: 'Country', id: 0, children: []}];
       let countriesArr = [];
       parsedCPoints.forEach(cp => {
         const isExist = countriesArr.find(e => e.name === cp.country);
@@ -54,7 +61,10 @@ const CountryDiscount = () => {
             },
           ];
         }
-        setCountries(countriesArr);
+        sections[0].children = [...countriesArr];
+        setCountries(sections);
+        setChargepoints(parsedCPoints);
+        setLoading(false);
       });
     }
   };
@@ -108,6 +118,7 @@ const CountryDiscount = () => {
       <FlatList
         data={relatedChargePoints}
         style={styles.flatlist}
+        nestedScrollEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.contentStyle}
         renderItem={_renderItem}
@@ -118,7 +129,9 @@ const CountryDiscount = () => {
               countries={countries}
               onSelectedItemsChange={onSelectedItemsChange}
               selectedCountries={selectedCountries}
+              loading={loading}
             />
+
             <Block mt={25} flex={false}>
               <Title>Discount Rate ( % )</Title>
               <Block flex={false} row center mt={25}>
