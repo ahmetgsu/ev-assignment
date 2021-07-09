@@ -12,7 +12,6 @@ import moment from 'moment';
 const BillingDetails = () => {
   const route = useRoute();
   const {item} = route.params;
-  console.log('BillingDetails -> item', item);
   return (
     <Block flex={1} color={colors.white}>
       <CHeader title={'Billing Details'} back />
