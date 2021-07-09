@@ -25,7 +25,7 @@ const ListItem = ({item}) => {
 
       <Prices
         title="Volume (/kWh)"
-        initialPrice={item.tariff.transactionFee}
+        initialPrice={item.tariff.perkWH}
         tariff={item.tariff}
         discount={item.tariff?.discount_perkWH}
         finalTitle="Final price"

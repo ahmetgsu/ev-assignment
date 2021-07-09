@@ -31,10 +31,10 @@ const Prices = ({title, initialPrice, tariff, discount, finalTitle, final}) => {
               </Text>
             </Block>
             <Block row space={'between'} pv={5} ph={15}>
-              <Text size={12} color={colors.gray1}>
+              <Text size={12} color={colors.gray1} weight="600">
                 {finalTitle}
               </Text>
-              <Text size={12} color={colors.gray1}>
+              <Text size={12} color={colors.gray1} weight="600">
                 {currency} {final.toFixed(2)}
               </Text>
             </Block>
