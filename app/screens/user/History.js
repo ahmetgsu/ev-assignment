@@ -12,7 +12,6 @@ const History = () => {
   const navigation = useNavigation();
   const [chargeHistory, setChargeHistory] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log('History -> chargeHistory', chargeHistory);
 
   useEffect(() => {
     isFocused && getUserChargeHistory();
@@ -22,7 +21,6 @@ const History = () => {
     const data = await AsyncStorage.getItem('charge-history');
     if (data != null) {
       const parsedData = JSON.parse(data);
-      console.log('History -> parsedData', parsedData);
       setChargeHistory(parsedData);
     }
     setLoading(false);

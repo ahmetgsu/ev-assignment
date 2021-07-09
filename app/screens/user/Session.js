@@ -28,12 +28,9 @@ const Session = () => {
   const [stopwatchStart, setStopwatchStart] = useState(false);
   const [stopwatchReset, setStopwatchReset] = useState(false);
   const [startTime, setStartTime] = useState();
-  console.log('Session -> startTime', startTime);
   const [endTime, setEndTime] = useState();
-  console.log('Session -> endTime', endTime);
   const [chargepoint, setChargePoint] = useState();
   const [chargeHistory, setChargeHistory] = useState([]);
-  console.log('Session -> chargeHistory', chargeHistory);
 
   useEffect(() => {
     if (isFocused) {
@@ -116,10 +113,6 @@ const Session = () => {
       totalToPay: finalToPay,
     };
     const finalDataToStore = [newDataToStore, ...chargeHistory];
-    console.log(
-      'calculateBillingDetails -> finalDataToStore',
-      finalDataToStore,
-    );
 
     AsyncStorage.setItem('charge-history', JSON.stringify(finalDataToStore));
     setStartTime();
