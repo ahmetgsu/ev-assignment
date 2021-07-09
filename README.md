@@ -72,8 +72,8 @@ In my simple application, I prefer to have a single signin screen and redirect u
 
 #### Technical
 
-- I prefer to use custom `Block` and `Text` components instead of native `View`, `Text` components. Creating a custom component let me prevent using inline styling and I think it is more readable.
-- I have choosen `FlatList` instead of simple `ScrollView` component taking into account performance issues. FlatList is more permformant when we have unlimited number to display on the screen and it provides us scroll-to-fetch feature.
+- I prefer to use custom `Block` and `Text` components instead of native `View`, `Text` components. Creating a custom component lets me prevent using inline styling and I think it is more readable.
+- I have choosen `FlatList` instead of simple `ScrollView` component taking into account performance issues. FlatList is more permformant when we have unlimited number of items to display on the screen and it provides us scroll-to-fetch feature.
 
 ### Demo
 
@@ -81,14 +81,18 @@ In my simple application, I prefer to have a single signin screen and redirect u
 
 ### ScreenShots
 
-<!-- ![SS1](./app/assets/images/01.png) ![SS2](./app/assets/images/15.png)
+![SS1](./app/assets/images/01.png) ![SS2](./app/assets/images/02.png)
 
-![SS3](./app/assets/images/12.png) ![SS4](./app/assets/images/13.png)
+![SS3](./app/assets/images/03.png) ![SS4](./app/assets/images/04.png)
 
-![SS5](./app/assets/images/14.png) ![SS6](./app/assets/images/06.png)
+![SS5](./app/assets/images/05.png) ![SS6](./app/assets/images/06.png)
 
-![SS7](./app/assets/images/16.png) ![SS11](./app/assets/images/21.png)
+![SS7](./app/assets/images/07.png) ![SS8](./app/assets/images/08.png)
 
-![SS8](./app/assets/images/18.png) ![SS9](./app/assets/images/19.png)
+![SS9](./app/assets/images/09.png) ![SS10](./app/assets/images/10.png)
 
-![SS10](./app/assets/images/20.png) -->
+![SS11](./app/assets/images/11.png) ![SS12](./app/assets/images/12.png)
+
+![SS13](./app/assets/images/13.png) ![SS14](./app/assets/images/14.png)
+
+![SS15](./app/assets/images/15.png) ![SS16](./app/assets/images/16.png)
