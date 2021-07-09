@@ -12,4 +12,5 @@ export const colors = {
   gray4: `rgba(236, 236, 227, 0.5)`,
   green1: '#6AA271',
   red1: '#E4702A',
+  disabled: '#aba7a5',
 };
