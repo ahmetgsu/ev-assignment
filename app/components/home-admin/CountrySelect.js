@@ -1,53 +1,41 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Block, Text} from '../common';
-import MultiSelect from 'react-native-multiple-select';
 import Title from '../common/Title';
 import {colors} from '../../styles/colors';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import {
+  generalMultiSelectStyling,
+  multiSelectColors,
+} from '../../styles/multi-select';
 const CountrySelect = ({
   countries,
   onSelectedItemsChange,
   selectedCountries,
-  onToggleList,
 }) => {
-  const multiSelectRef = React.useRef();
   return (
     <Block flex={false} mt={20}>
       <Title>Please select countries to apply discount</Title>
 
       <Block flex={false} mt={20}>
-        <MultiSelect
-          hideTags
+        <SectionedMultiSelect
           items={countries}
+          IconRenderer={Icon}
           uniqueKey="id"
-          ref={multiSelectRef}
+          subKey="children"
+          selectText="Choose any country..."
+          showDropDowns={true}
+          readOnlyHeadings={true}
           onSelectedItemsChange={onSelectedItemsChange}
           selectedItems={selectedCountries}
-          selectText={'Select Country/Countries'}
-          searchInputPlaceholderText="Search country..."
-          // onChangeInput={text => console.log(text)}
-          tagRemoveIconColor={colors.main}
-          tagBorderColor={colors.main}
-          tagTextColor={colors.main}
-          selectedItemTextColor={colors.main}
-          selectedItemIconColor={colors.main}
-          itemTextColor="#000"
-          displayKey="name"
-          searchInputStyle={{color: '#CCC'}}
-          submitButtonColor={colors.main}
-          submitButtonText="Submit"
-          styleListContainer={{marginTop: 15}}
-          styleRowList={{height: 40}}
-          hideSubmitButton
-          hideDropdown
-          onToggleList={onToggleList}
+          showDropDowns={false}
+          showCancelButton
+          onCancel={() => onSelectedItemsChange([])}
+          searchPlaceholderText="Search country"
+          styles={generalMultiSelectStyling}
+          colors={multiSelectColors}
         />
-        {multiSelectRef?.current && (
-          <Block flex={false}>
-            {multiSelectRef?.current?.getSelectedItemsExt(selectedCountries)}
-          </Block>
-        )}
       </Block>
     </Block>
   );

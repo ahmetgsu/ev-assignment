@@ -1,9 +1,13 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Block, Text} from '../common';
-import MultiSelect from 'react-native-multiple-select';
+import {Block} from '../common';
 import Title from '../common/Title';
-import {colors} from '../../styles/colors';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import {
+  generalMultiSelectStyling,
+  multiSelectColors,
+} from '../../styles/multi-select';
 
 const OperatorSelect = ({
   operators,
@@ -15,35 +19,23 @@ const OperatorSelect = ({
     <Block flex={false} mt={20}>
       <Title>Please select operators to apply discount</Title>
       <Block flex={false} mt={20}>
-        <MultiSelect
-          hideTags
+        <SectionedMultiSelect
           items={operators}
+          IconRenderer={Icon}
           uniqueKey="id"
-          ref={multiSelectRef}
+          subKey="children"
+          selectText="Choose any operator..."
+          showDropDowns={true}
+          readOnlyHeadings={true}
           onSelectedItemsChange={onSelectedItemsChange}
           selectedItems={selectedOperators}
-          selectText={'Select Operators'}
-          searchInputPlaceholderText="Search operators..."
-          // onChangeInput={text => console.log(text)}
-          // altFontFamily="ProximaNova-Light"
-          tagRemoveIconColor={colors.main}
-          tagBorderColor={colors.main}
-          tagTextColor={colors.main}
-          selectedItemTextColor={colors.main}
-          selectedItemIconColor={colors.main}
-          itemTextColor="#000"
-          displayKey="name"
-          searchInputStyle={{color: '#CCC'}}
-          // submitButtonColor={colors.main}
-          // submitButtonText="Submit"
-          styleListContainer={{marginTop: 15}}
-          styleRowList={{height: 40}}
-          hideSubmitButton
-          hideDropdown
+          showDropDowns={false}
+          showCancelButton
+          onCancel={() => onSelectedItemsChange([])}
+          searchPlaceholderText="Search country"
+          styles={generalMultiSelectStyling}
+          colors={multiSelectColors}
         />
-      </Block>
-      <Block>
-        {multiSelectRef?.current?.getSelectedItemsExt(selectedOperators)}
       </Block>
     </Block>
   );
