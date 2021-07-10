@@ -19,39 +19,41 @@ const HistoryCard = ({item, index, onPress}) => {
   };
   return (
     <Block row center middle ph={15} style={styles.cardContainer} pv={10}>
-      <TouchableOpacity
-        activeOpacity={0.8}
-        style={styles.touchable}
-        onPress={() => onPress(item)}>
-        <Block flex={false} style={[styles.card, android && androidShadow]}>
-          <CardRowText
-            title={'Operator'}
-            value={item.operator}
-            color={colors.gray1}
-            color2={colors.green1}
-            weight={'300'}
-          />
-          <CardRowText
-            title={'Duration (mins)'}
-            value={item.chargeDuration}
-            color={colors.gray1}
-            weight={'300'}
-          />
-          <CardRowText
-            title={'Date'}
-            value={moment(item.endTime).format('LL')}
-            color={colors.gray1}
-            weight={'300'}
-          />
-          <CardRowText
-            title={'Total paid'}
-            value={item.totalToPay.toFixed(2)}
-            color={colors.gray1}
-            weight={'500'}
-            pb={5}
-          />
-        </Block>
-      </TouchableOpacity>
+      <Block flex={false} style={[styles.card, android && androidShadow]}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={[styles.touchable]}
+          onPress={() => onPress(item)}>
+          <Block flex={false} style={[styles.card]}>
+            <CardRowText
+              title={'Operator'}
+              value={item.operator}
+              color={colors.gray1}
+              color2={colors.green1}
+              weight={'300'}
+            />
+            <CardRowText
+              title={'Duration (mins)'}
+              value={item.chargeDuration}
+              color={colors.gray1}
+              weight={'300'}
+            />
+            <CardRowText
+              title={'Date'}
+              value={moment(item.endTime).format('LL')}
+              color={colors.gray1}
+              weight={'300'}
+            />
+            <CardRowText
+              title={'Total paid'}
+              value={item.totalToPay.toFixed(2)}
+              color={colors.gray1}
+              weight={'500'}
+              pb={5}
+            />
+          </Block>
+        </TouchableOpacity>
+      </Block>
     </Block>
   );
 };
