@@ -43,15 +43,15 @@ Admin Account: email: admin@gmail.com - password: secret
 User  Account: email: customer@gmail.com - password: 123
 ```
 
-Since it is just a front-end task, I checked email and password control on front-end. I handled wrong email and password combinations.
-When user successfully signed-in, according to the user role, which is determined by isAdmin prop in `mocks/users.js file`, a related user interface is shown.
+Since it is just a front-end task, I checked email and password validity on front-end. I handled wrong email and password combinations and display a related error message.
+When user successfully signed-in, according to the user role, which is determined by `isAdmin` prop in `mocks/users.js file`, a relevant user interface is shown.
 
 I have created a dummy chargepoints data in `mocks/chargepoints.js`. When application is loaded for the first time, this data is written to AsyncStorage. Then, users can make CRUD operations.
 I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators in each countries.
 
 ### Aim of the project 🎯
 
-- To create a bug-free react native application that has 2 seperate user interfaces.
+- To create a bug-free cleanly coded quality react native application that has 2 seperate user interfaces.
   One for admin user in which admin can create a promotion for Country and/or Operator.
   Other is for standart user interface in which user may create a charging session and may see all his/her past charging sessions.
 
