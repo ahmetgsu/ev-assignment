@@ -100,15 +100,14 @@ const Signin = ({navigation}) => {
             right={
               <TextInput.Icon
                 name={() => (
-                  <Icon
-                    onPress={toggleSecureText}
-                    name={secureText ? 'eye' : 'eye-slash'}
-                    color={colors.main}
-                    size={25}
-                  />
+                  <TouchableOpacity onPress={toggleSecureText}>
+                    <Icon
+                      name={secureText ? 'eye' : 'eye-slash'}
+                      color={colors.main}
+                      size={25}
+                    />
+                  </TouchableOpacity>
                 )}
-                color={colors.main}
-                onPress={toggleSecureText}
               />
             }
           />
