@@ -97,4 +97,4 @@ In my simple application, I prefer to have a single signin screen and redirect u
 
 ![SS15](./app/assets/images/11_3.png) ![SS16](./app/assets/images/11_4.png)
 
-![SS17](./app/assets/images/11_5.png)
+![SS17](./app/assets/images/11_5.png) ![SS18](./app/assets/images/11_6.png)
