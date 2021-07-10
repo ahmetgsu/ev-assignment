@@ -6,7 +6,7 @@
 
 - Globally installed [react-native CLI](https://facebook.github.io/react-native/docs/getting-started.html)
 
-- You will need Android Studio, Watchman, Xcode, JDK and CocoaPods as described in [Official React Native documentation](https://reactnative.dev/docs/environment-setup#installing-dependencies)
+- Depending on your OS and target OS, you will need `Android Studio`, `Watchman`, `Xcode`, `JDK` and `CocoaPods` as described in [Official React Native documentation](https://reactnative.dev/docs/environment-setup#installing-dependencies). If you do not have one of those required tools, please follow the intallation instructions first.
 
 ### 2. Installation
 
