@@ -1,19 +1,29 @@
 import moment from 'moment';
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {width} from '../../../helpers/device';
+import {android, width} from '../../../helpers/device';
 import {colors} from '../../../styles/colors';
 import {Block, Text} from '../../common';
 import CardRowText from '../../common/CardRowText';
 
 const HistoryCard = ({item, index, onPress}) => {
+  const androidShadow = {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.36,
+    shadowRadius: 6.68,
+    elevation: 7,
+  };
   return (
-    <Block row center middle ph={15} style={styles.cardContainer}>
+    <Block row center middle ph={15} style={styles.cardContainer} pv={10}>
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.touchable}
         onPress={() => onPress(item)}>
-        <Block flex={false} style={styles.card} mt={5} mb={5}>
+        <Block flex={false} style={[styles.card, android && androidShadow]}>
           <CardRowText
             title={'Operator'}
             value={item.operator}
@@ -59,14 +69,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: colors.gray2,
-    // shadowColor: colors.gray2,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 5,
-    // },
-    // shadowOpacity: 0.36,
-    // shadowRadius: 6.68,
-    // elevation: 11,
   },
   touchable: {
     shadowColor: colors.gray1,

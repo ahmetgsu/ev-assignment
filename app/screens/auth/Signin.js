@@ -7,6 +7,7 @@ import {textInputTheme} from '../../styles/text-input';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {users} from '../../mocks/users';
 import Logo from '../../assets/images/logo.svg';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -95,7 +96,14 @@ const Signin = ({navigation}) => {
             theme={textInputTheme}
             right={
               <TextInput.Icon
-                name={secureText ? 'eye' : 'eye-off'}
+                name={() => (
+                  <Icon
+                    onPress={toggleSecureText}
+                    name={secureText ? 'eye' : 'eye-slash'}
+                    color={colors.main}
+                    size={25}
+                  />
+                )}
                 color={colors.main}
                 onPress={toggleSecureText}
               />
@@ -131,5 +139,11 @@ const styles = StyleSheet.create({
   },
   snackbar: {
     marginHorizontal: 30,
+  },
+  eyeContainer: {
+    position: 'absolute',
+    top: 20,
+    right: 50,
+    backgroundColor: 'pink',
   },
 });

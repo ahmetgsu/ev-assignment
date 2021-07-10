@@ -4,6 +4,7 @@ import Block from './Block';
 import Text from './Text';
 import Modal from 'react-native-modal';
 import {colors} from '../../styles/colors';
+import {heightScr, widthScr} from '../../helpers/device';
 
 const ConfirmationModal = ({isVisible, toggleModal, rightBtnAction}) => {
   return (
@@ -14,7 +15,10 @@ const ConfirmationModal = ({isVisible, toggleModal, rightBtnAction}) => {
       onRequestClose={toggleModal}
       backdropColor="rgba(0,0,0,0.8)"
       useNativeDriver
+      coverScreen={true}
       useNativeDriverForBackdrop
+      deviceWidth={widthScr}
+      deviceHeight={heightScr}
       style={styles.modal}>
       <Block flex={1} style={styles.container}>
         <Block flex={2.5}>
@@ -69,7 +73,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 20,
   },
-  buttonContainer: {borderTopWidth: 1, borderColor: colors.gray2},
+  buttonContainer: {
+    borderTopWidth: 1,
+    borderColor: colors.gray2,
+  },
   textBlock: {
     paddingHorizontal: 16,
     paddingTop: 15,

@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ConfirmationModal from './ConfirmationModal';
-
+import {ios} from '../../helpers/device';
 const statusbarHeight = getStatusBarHeight();
 
 const CHeader = ({bgColor, title, back, right}) => {
@@ -72,8 +72,8 @@ export default CHeader;
 
 const styles = StyleSheet.create({
   header: {
-    height: 60 + statusbarHeight,
-    paddingTop: statusbarHeight,
+    height: ios ? 60 + statusbarHeight : 60,
+    paddingTop: ios ? statusbarHeight : 0,
     borderBottomWidth: 0.5,
     borderBottomColor: colors.green1,
   },
