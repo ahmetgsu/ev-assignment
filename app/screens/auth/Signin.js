@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Snackbar, TextInput} from 'react-native-paper';
 import {Block, ColorButton, Text} from '../../components/common';
