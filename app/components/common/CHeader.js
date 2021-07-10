@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Block, Text} from '.';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
@@ -7,13 +7,18 @@ import {colors} from '../../styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ConfirmationModal from './ConfirmationModal';
 
 const statusbarHeight = getStatusBarHeight();
 
 const CHeader = ({bgColor, title, back, right}) => {
+  const [isVisible, setIsVisible] = useState(false);
   const navigation = useNavigation();
 
+  const toggleModal = () => setIsVisible(prev => !prev);
+
   const signoutHandler = async () => {
+    toggleModal();
     await AsyncStorage.removeItem('user');
     navigation.navigate('Signin');
   };
@@ -22,37 +27,44 @@ const CHeader = ({bgColor, title, back, right}) => {
     navigation.goBack();
   };
   return (
-    <Block
-      flex={false}
-      style={{...styles.header, backgroundColor: bgColor}}
-      row>
-      <Block flex={1} row center middle>
-        {back && (
-          <TouchableOpacity onPress={goBack}>
-            <FastImage
-              source={require('../../assets/icons/left-chevron.png')}
-              resizeMode={FastImage.resizeMode.contain}
-              style={styles.backIcon}
+    <>
+      <Block
+        flex={false}
+        style={{...styles.header, backgroundColor: bgColor}}
+        row>
+        <Block flex={1} row center middle>
+          {back && (
+            <TouchableOpacity onPress={goBack}>
+              <FastImage
+                source={require('../../assets/icons/left-chevron.png')}
+                resizeMode={FastImage.resizeMode.contain}
+                style={styles.backIcon}
+              />
+            </TouchableOpacity>
+          )}
+        </Block>
+        <Block flex={3} row center middle>
+          <Text size={20} weight="bold">
+            {title}
+          </Text>
+        </Block>
+        <Block flex={1} row center middle>
+          {right && (
+            <Icon
+              name="sign-out"
+              color={colors.red1}
+              size={25}
+              onPress={toggleModal}
             />
-          </TouchableOpacity>
-        )}
+          )}
+        </Block>
       </Block>
-      <Block flex={3} row center middle>
-        <Text size={20} weight="bold">
-          {title}
-        </Text>
-      </Block>
-      <Block flex={1} row center middle>
-        {right && (
-          <Icon
-            name="sign-out"
-            color={colors.red1}
-            size={25}
-            onPress={signoutHandler}
-          />
-        )}
-      </Block>
-    </Block>
+      <ConfirmationModal
+        isVisible={isVisible}
+        toggleModal={toggleModal}
+        rightBtnAction={signoutHandler}
+      />
+    </>
   );
 };
 
