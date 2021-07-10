@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {StyleSheet, FlatList, TextInput} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import {Divider} from 'react-native-paper';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {Block, CHeader, ColorButton} from '../../components/common';
-import CheckBox from '../../components/common/CheckBox';
-import Title from '../../components/common/Title';
 import OperatorSelect from '../../components/home-admin/OperatorSelect';
 import {getNewStates} from '../../helpers/getNewStates';
 import {colors} from '../../styles/colors';
 import ListItem from './ListItem';
 import {decrement, increment} from '../../helpers/discount';
 import {useIsFocused} from '@react-navigation/native';
+import DiscountRate from '../../components/home-admin/DiscountRate';
+import DiscountType from '../../components/home-admin/DiscountType';
 
 const OperatorDiscount = () => {
   const isFocused = useIsFocused();
@@ -96,6 +95,14 @@ const OperatorDiscount = () => {
     setChargepoints(newArray);
   };
 
+  const onChangeNumber = t => {
+    if (t > 100) {
+      setDiscount(100);
+      return;
+    }
+    setDiscount(t);
+  };
+
   const _renderItem = ({item, index}) => <ListItem item={item} key={index} />;
 
   return (
@@ -115,47 +122,14 @@ const OperatorDiscount = () => {
               onSelectedItemsChange={onSelectedItemsChange}
               selectedOperators={selectedOperators}
             />
-            <Block mt={25} flex={false}>
-              <Title>Discount Rate ( % )</Title>
-              <Block flex={false} row center mt={25}>
-                <Icon
-                  name="minus-circle"
-                  size={25}
-                  onPress={() => decrement(setDiscount)}
-                />
-                <TextInput
-                  value={`${discount.toString()}`}
-                  onChangeText={t => onChangeNumber(t)}
-                  selectionColor={colors.main}
-                  underlineColor={'transparent'}
-                  outlineColor={colors.main}
-                  style={styles.textInput}
-                  keyboardType="numeric"
-                />
-                <Icon
-                  name="plus-circle"
-                  size={25}
-                  onPress={() => increment(setDiscount)}
-                />
-              </Block>
-            </Block>
-            <Block mt={25} flex={false}>
-              <Title>Discount Type</Title>
-              <Block flex={false} row center space="between" mt={25}>
-                <CheckBox
-                  checked={checked}
-                  value="perkWH"
-                  title="per kWh"
-                  callback={onCheckPress}
-                />
-                <CheckBox
-                  checked={checked}
-                  value="transactionFee"
-                  title="Transaction Fee"
-                  callback={onCheckPress}
-                />
-              </Block>
-            </Block>
+            <DiscountRate
+              increment={increment}
+              decrement={decrement}
+              cb={setDiscount}
+              discount={discount}
+              onTextChange={onChangeNumber}
+            />
+            <DiscountType checked={checked} onCheckPress={onCheckPress} />
           </>
         }
         ItemSeparatorComponent={() => <Divider />}

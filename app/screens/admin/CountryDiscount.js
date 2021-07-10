@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, TextInput, FlatList} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import {Block, CHeader, ColorButton} from '../../components/common';
 import {colors} from '../../styles/colors';
 import CountrySelect from '../../components/home-admin/CountrySelect';
-import Title from '../../components/common/Title';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import CheckBox from '../../components/common/CheckBox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Divider} from 'react-native-paper';
 import ListItem from './ListItem';
 import {decrement, increment} from '../../helpers/discount';
 import {getNewStates} from '../../helpers/getNewStates';
 import {useIsFocused} from '@react-navigation/native';
+import DiscountRate from '../../components/home-admin/DiscountRate';
+import DiscountType from '../../components/home-admin/DiscountType';
 
 const CountryDiscount = () => {
   const isFocused = useIsFocused();
@@ -131,48 +130,14 @@ const CountryDiscount = () => {
               selectedCountries={selectedCountries}
               loading={loading}
             />
-
-            <Block mt={25} flex={false}>
-              <Title>Discount Rate ( % )</Title>
-              <Block flex={false} row center mt={25}>
-                <Icon
-                  name="minus-circle"
-                  size={25}
-                  onPress={() => decrement(setDiscount)}
-                />
-                <TextInput
-                  value={`${discount.toString()}`}
-                  onChangeText={t => onChangeNumber(t)}
-                  selectionColor={colors.main}
-                  underlineColor={'transparent'}
-                  outlineColor={colors.main}
-                  style={styles.textInput}
-                  keyboardType="numeric"
-                />
-                <Icon
-                  name="plus-circle"
-                  size={25}
-                  onPress={() => increment(setDiscount)}
-                />
-              </Block>
-            </Block>
-            <Block mt={25} flex={false}>
-              <Title>Discount Type</Title>
-              <Block flex={false} row center space="between" mt={25}>
-                <CheckBox
-                  checked={checked}
-                  value="perkWH"
-                  title="per kWh"
-                  callback={onCheckPress}
-                />
-                <CheckBox
-                  checked={checked}
-                  value="transactionFee"
-                  title="Transaction Fee"
-                  callback={onCheckPress}
-                />
-              </Block>
-            </Block>
+            <DiscountRate
+              increment={increment}
+              decrement={decrement}
+              cb={setDiscount}
+              discount={discount}
+              onTextChange={onChangeNumber}
+            />
+            <DiscountType checked={checked} onCheckPress={onCheckPress} />
           </>
         }
         ItemSeparatorComponent={() => <Divider />}
@@ -191,16 +156,6 @@ const CountryDiscount = () => {
 export default CountryDiscount;
 
 const styles = StyleSheet.create({
-  textInput: {
-    width: 100,
-    height: 50,
-    borderRadius: 10,
-    fontSize: 18,
-    textAlign: 'center',
-    marginHorizontal: 25,
-    borderColor: 'transparent',
-    backgroundColor: colors.gray2,
-  },
   contentStyle: {
     paddingHorizontal: 25,
     paddingBottom: 100,
