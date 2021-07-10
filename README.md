@@ -47,11 +47,11 @@ I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators
 
 ### Aim of the project 🎯
 
-- To create a react native application that has 2 seperate user interfaces.
+- To create a bug-free react native application that has 2 seperate user interfaces.
   One for admin user in which admin can create a promotion for Country and/or Operator.
   Other is for standart user interface in which user may create a charging session and may see all his/her past charging sessions.
 
-- My main focus is to create a well working react native application on IOS to keep it simple. Android settings are ignored.
+- My main focus is to create a well working react native application on IOS to keep it simple. Android application also works as expected. However, `app logo` and `splashscreen` feature only added for IOS app.
 
 * Users are able to see past charging details after tapping related card (includes map integration).
 
