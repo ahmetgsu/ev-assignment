@@ -6,7 +6,7 @@
 
 - Globally installed [react-native CLI](https://facebook.github.io/react-native/docs/getting-started.html)
 
-- You will need Watchman, Xcode and CocoaPods as described in [Official React Native documentation](https://reactnative.dev/docs/environment-setup#installing-dependencies)
+- You will need Android Studio, Watchman, Xcode, JDK and CocoaPods as described in [Official React Native documentation](https://reactnative.dev/docs/environment-setup#installing-dependencies)
 
 ### 2. Installation
 
@@ -29,6 +29,10 @@ $ cd ios && pod install
 ### Run on iOS 📱
 
 - Run `npx react-native run-ios` in your terminal, on the root folder of the project
+
+### Run on Android 📱
+
+- Run `npx react-native run-android` in your terminal, on the root folder of the project
 
 ### Signin to app
 
