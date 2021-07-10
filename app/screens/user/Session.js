@@ -25,8 +25,6 @@ const Session = () => {
   const [totalBeforeDiscount, setTotalBeforeDiscount] = useState();
   const [totalDiscount, setTotalDiscount] = useState();
   const [totalToPay, setTotalToPay] = useState();
-  const [stopwatchStart, setStopwatchStart] = useState(false);
-  const [stopwatchReset, setStopwatchReset] = useState(false);
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
   const [chargepoint, setChargePoint] = useState();
@@ -71,20 +69,9 @@ const Session = () => {
     }
   };
 
-  const toggleStopwatch = () => {
-    setStopwatchStart(prev => !prev);
-  };
+  const startSession = () => setStartTime(moment().format());
 
-  const startSession = () => {
-    setStartTime(moment().format());
-    toggleStopwatch();
-    setStopwatchReset(false);
-  };
-  const stopSession = () => {
-    setEndTime(moment().format());
-    toggleStopwatch();
-    setStopwatchReset(true);
-  };
+  const stopSession = () => setEndTime(moment().format());
 
   const calculateBillingDetails = () => {
     const duration_ =
@@ -139,12 +126,7 @@ const Session = () => {
           totalToPay={totalToPay}
         />
       </ScrollView>
-      <SessionTracker
-        stopwatchStart={stopwatchStart}
-        stopwatchReset={stopwatchReset}
-        start={startSession}
-        stop={stopSession}
-      />
+      <SessionTracker start={startSession} stop={stopSession} />
     </Block>
   );
 };
