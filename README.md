@@ -68,12 +68,15 @@ This can be acceptable in a simple app but in a real life application user roles
 
 ![Real-life Role Implementation](./app/assets/images/real-life-roles.png)
 
-In my simple application, I prefer to have a single signin screen and redirect users to the related screen according to their boolean role. However, in a real-life app, roles may be more complex (e.g. an admin user may also be a customer). It would be better to handle user role as an array of objects. On the other hand, it would be better to have different sign-in screens (for admin and for customers) in order to prevent complications during the signin process.
+In my simple application, I prefer to have a single signin screen and redirect users to the related screen according to their boolean role. However, in a real-life app, roles may be more complex (e.g. an admin user may also be a customer). It would be better to handle user role as an array of objects. On the other hand, displaying different sign-in screens to admin and customers would be better in order to prevent complications during the signin process.
 
 #### Technical
 
-- I prefer to use custom `Block` and `Text` components instead of native `View`, `Text` components. Creating a custom component lets me prevent using inline styling and I think it is more readable.
-- I have choosen `FlatList` instead of simple `ScrollView` component taking into account performance issues. FlatList is more permformant when we have unlimited number of items to display on the screen and it provides us scroll-to-fetch feature.
+- I prefer to use custom components, such as `Block`, `Text`, `CHeader` and `ConfirmationModal`, instead of native `View`, `Text` components. Creating a custom component lets me prevent using inline styling and I think it is more readable.
+- I have choosen `FlatList` instead of simple `ScrollView` component taking into account performance issues. The main reason of my choice is that `FlatList` is more performant when we have unlimited number of items to display on the screen and it provides us scroll-to-fetch feature. On the other hand, React native warns us that VirtualizedLists should never be nested inside plain ScrollViews with the same orientation because it can break windowing and other functionality - use another VirtualizedList-backed container instead.
+- To provide a better user experience, I have added an illustration on User charging history screen in order to not to show a blank screen to users.
+- I have also prefered to display a confirmation modal before taking a significant action. This is to verify that users truly intended to perform that action.
+- I have initially used a 3rd party library for `Timer` on the customer session screen. However, I have been getting a react native warning saying that componentWillReceiveProps is deprecated and is not recommended for use. I had 2 options: First one is to fork the library, make necessary changes and open a PR. Obviously, it would take some time for me. Second one is to create my own timer component with modern react features. In my case, I have pragmatically choosen the second option.
 
 ### Demo
 

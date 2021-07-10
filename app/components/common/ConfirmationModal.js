@@ -20,14 +20,14 @@ const ConfirmationModal = ({isVisible, toggleModal, rightBtnAction}) => {
         <Block flex={2.5}>
           <Block flex={1.5} row middle style={{alignItems: 'flex-end'}}>
             <Text weight="600" style={{fontSize: 17}}>
-              Are you sure?
+              Sign-out from the app?
             </Text>
           </Block>
           <Block flex={2} row middle style={styles.textBlock}>
             <Text
               center
               style={{fontSize: 13, lineHeight: 16, letterSpacing: -0.08}}>
-              Do you really want to sign out?
+              You will need to sign-in again to use the app
             </Text>
           </Block>
         </Block>
@@ -35,14 +35,14 @@ const ConfirmationModal = ({isVisible, toggleModal, rightBtnAction}) => {
           <Block flex={1}>
             <TouchableOpacity onPress={toggleModal}>
               <Block flex={false} row center middle style={styles.leftBtn}>
-                <Text color={colors.red1}>Cancel</Text>
+                <Text color={colors.disabled}>No</Text>
               </Block>
             </TouchableOpacity>
           </Block>
           <Block flex={1}>
             <TouchableOpacity onPress={rightBtnAction}>
               <Block flex={false} row center middle style={styles.rightBtn}>
-                <Text color={colors.green1}>Confirm</Text>
+                <Text color={colors.red1}>Yes</Text>
               </Block>
             </TouchableOpacity>
           </Block>
