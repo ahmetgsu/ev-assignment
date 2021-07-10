@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {KeyboardAvoidingView, StyleSheet, TouchableOpacity} from 'react-native';
 import {Snackbar, TextInput} from 'react-native-paper';
 import {Block, ColorButton, Text} from '../../components/common';
 import {colors} from '../../styles/colors';
@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {users} from '../../mocks/users';
 import Logo from '../../assets/images/logo.svg';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {ios} from '../../helpers/device';
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -40,7 +41,9 @@ const Signin = ({navigation}) => {
   };
 
   return (
-    <Block flex={1} color={colors.white}>
+    <KeyboardAvoidingView
+      behavior={ios ? 'padding' : 'height'}
+      style={styles.container}>
       <Snackbar
         visible={error}
         style={styles.snackbar}
@@ -121,13 +124,17 @@ const Signin = ({navigation}) => {
           <ColorButton text="Sign In" callback={signinHandler} />
         </Block>
       </Block>
-    </Block>
+    </KeyboardAvoidingView>
   );
 };
 
 export default Signin;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
   inputField: {
     width: '100%',
     // height: 60,
