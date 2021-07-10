@@ -80,6 +80,7 @@ const CountryDiscount = () => {
     const newArr = [...checked, txt];
     setChecked(newArr);
   };
+
   const removeFromList = txt => {
     const newArr = checked.filter(e => e !== txt);
     setChecked(newArr);

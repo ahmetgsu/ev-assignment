@@ -74,6 +74,7 @@ const OperatorDiscount = () => {
     const newArr = [...checked, txt];
     setChecked(newArr);
   };
+
   const removeFromList = txt => {
     const newArr = checked.filter(e => e !== txt);
     setChecked(newArr);
@@ -148,16 +149,6 @@ const OperatorDiscount = () => {
 export default OperatorDiscount;
 
 const styles = StyleSheet.create({
-  textInput: {
-    width: 100,
-    height: 50,
-    borderRadius: 10,
-    fontSize: 18,
-    textAlign: 'center',
-    marginHorizontal: 25,
-    borderColor: 'transparent',
-    backgroundColor: colors.gray2,
-  },
   contentStyle: {
     paddingHorizontal: 25,
     paddingBottom: 100,
