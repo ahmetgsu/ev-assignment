@@ -3,6 +3,7 @@ import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {colors} from '../../styles/colors';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Text from './Text';
+import {ios} from '../../helpers/device';
 
 const CTabBar = ({state, descriptors, navigation}) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -56,7 +57,7 @@ const CTabBar = ({state, descriptors, navigation}) => {
               flex: 1,
               alignItems: 'center',
               justifyContent: 'center',
-              paddingBottom: 15,
+              paddingBottom: ios ? 15 : 0,
             }}>
             <FontAwesome5
               name={
