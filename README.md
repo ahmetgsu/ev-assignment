@@ -43,44 +43,44 @@ Admin Account: email: admin@gmail.com - password: secret
 User  Account: email: customer@gmail.com - password: 123
 ```
 
-Since it is just a front-end task, I checked email and password validity on front-end. I handled wrong email and password combinations and display a related error message.
-When user successfully signed-in, according to the user role, which is determined by `isAdmin` prop in `mocks/users.js file`, a relevant user interface is shown.
+Since it is just a front-end task, I checked email and password validity on the front-end. I handled the wrong email and password combinations and display a related error message.
+When a user successfully signed-in, according to the user role, which is determined by `isAdmin` prop in `mocks/users.js file`, a relevant user interface is shown.
 
-I have created a dummy chargepoints data in `mocks/chargepoints.js`. When application is loaded for the first time, this data is written to AsyncStorage. Then, users can make CRUD operations.
-I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators in each countries.
+I have created dummy charge points data in `mocks/chargepoints.js`. When the application is loaded for the first time, this data is written to AsyncStorage. Then, users can make CRUD operations.
+I have choosen 3 countries (Netherlands - Germany - UK), and created 3 operators in each country.
 
 ### Aim of the project 🎯
 
-- To create a bug-free cleanly coded quality react native application that has 2 seperate user interfaces.
+- To create a bug-free cleanly coded quality react native application that has 2 separate user interfaces.
   One for admin user in which admin can create a promotion for Country and/or Operator.
-  Other is for standart user interface in which user may create a charging session and may see all his/her past charging sessions.
+  Other is for the standard user interface in which the user may create a charging session and may see all his/her past charging sessions.
 
-- My main focus is to create a well working react native application on IOS to keep it simple. Android application also works as expected. However, `app logo` and `splashscreen` feature only added for IOS app.
+- My main focus is to create a well-working react native application on IOS to keep it simple. The android application also works as expected. However, `app logo` and `splashscreen` features were only added for the IOS app.
 
-* Users are able to see past charging details after tapping related card (includes map integration).
+* Users can see past charging details after tapping related cards (includes map integration).
 
 ### Personal Choices
 
 #### Roles
 
-- In order to keep the app flow simple in lack of project back-end, I decided to give a boolean `isAdmin` value to user object to differenciate roles.
-  Acccording to this isAdmin value different user interfaces are shown.
+- To keep the app flow simple in lack of project back-end, I decided to give a boolean `isAdmin` value to user object to differentiate roles.
+  According to this isAdmin value, different user interfaces are shown.
 
 ![Simple Role Implementation](./app/assets/images/simple-roles.png)
 
-This can be acceptable in a simple app but in a real life application user roles should be determined in a precise way. We may think of describing roles as follows:
+This can be acceptable in a simple app but in a real-life application user roles should be determined in a precise way. We may think of describing roles as follows:
 
 ![Real-life Role Implementation](./app/assets/images/real-life-roles.png)
 
-In my simple application, I prefer to have a single signin screen and redirect users to the related screen according to their boolean role. However, in a real-life app, roles may be more complex (e.g. an admin user may also be a customer). It would be better to handle user role as an array of objects. On the other hand, displaying different sign-in screens to admin and customers would be better in order to prevent complications during the signin process.
+In my simple application, I prefer to have a single sign-in screen and redirect users to the related screen according to their boolean role. However, in a real-life app, roles may be more complex (e.g. an admin user may also be a customer). It would be better to handle the user role as an array of objects. On the other hand, displaying different sign-in screens to admin and customers would be better to prevent complications during the sign-in process.
 
 #### Technical
 
 - I prefer to use custom components, such as `Block`, `Text`, `CHeader` and `ConfirmationModal`, instead of native `View`, `Text` components. Creating a custom component lets me prevent using inline styling and I think it is more readable.
-- I have choosen `FlatList` instead of simple `ScrollView` component taking into account performance issues. The main reason of my choice is that `FlatList` is more performant when we have unlimited number of items to display on the screen and it provides us scroll-to-fetch feature. On the other hand, React native warns us that VirtualizedLists should never be nested inside plain ScrollViews with the same orientation because it can break windowing and other functionality - use another VirtualizedList-backed container instead.
-- To provide a better user experience, I have added an illustration on User charging history screen in order to not to show a blank screen to users.
-- I have also prefered to display a confirmation modal before taking a significant action. This is to verify that users truly intended to perform that action.
-- I have initially used a 3rd party library for `Timer` on the customer session screen. However, I have been getting a react native warning saying that componentWillReceiveProps is deprecated and is not recommended for use. I had 2 options: First one is to fork the library, make necessary changes and open a PR. Obviously, it would take some time for me. Second one is to create my own timer component with modern react features. In my case, I have pragmatically choosen the second option.
+- I have chosen `FlatList` instead of the simple `ScrollView` component taking into account performance issues. The main reason for my choice is that `FlatList` is more performant when we have an unlimited number of items to display on the screen and it provides us a scroll-to-fetch feature. On the other hand, React native warns us that VirtualizedLists should never be nested inside plain ScrollViews with the same orientation because it can break windowing and other functionality - use another VirtualizedList-backed container instead.
+- To provide a better user experience, I have added an illustration on the User charging history screen to not to show a blank screen to users.
+- I have also preferred to display a confirmation modal before taking significant action. This is to verify that users truly intended to perform that action.
+- I have initially used a 3rd party library for `Timer` on the customer session screen. However, I have been getting a react native warning saying that componentWillReceiveProps is deprecated and is not recommended for use. I had 2 options: The first one is to fork the library, make necessary changes, and open a PR. It would take some time for me. The second one is to create my timer component with modern react features. In my case, I have pragmatically chosen the second option.
 
 ### Demo
 
